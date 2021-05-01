@@ -2,7 +2,7 @@
 import react , {useState, useEffect} from 'react'
 import {auth,db} from './chat/firebase'
 import LoginDemo from './Logindemo/LoginDemo';
-import {HashRouter as Switch, Route,Router } from "react-router-dom";
+import {Switch, Route,Router } from "react-router-dom";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
 import SingleRoom from "./pages/SingleRoom";
@@ -52,7 +52,8 @@ function App() {
      <>
       <Switch>
             <Route exact path="/" component={LoginDemo} />
-            <Route  component={LoginDemo} />
+            <Route component={LoginDemo} />
+            
       </Switch>
      </>
    }
