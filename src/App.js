@@ -10,7 +10,10 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import CreateCard from './pages/CreateCard'
 import RoomAccept from './pages/RoomAccept'
+import { createBrowserHistory } from 'history';
+
 function App() {
+  const history = createBrowserHistory();
     const [user , setUser] = useState(auth)
     const [initializing , setInitializing] = useState(true)
     useEffect(() => {
@@ -35,7 +38,7 @@ function App() {
        <>
         <>
       <Navbar />
-      <>
+      <Router history={history}>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/rooms/" component={Rooms} />
@@ -44,7 +47,7 @@ function App() {
           <Route exact path="/rooms/:slug/:nameProcard" children={<RoomAccept user={user} db={db} />} />
           <Route component={Home} />
         </Switch>
-      </>
+      </Router>
     </>
        </>
      )
